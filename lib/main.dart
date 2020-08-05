@@ -34,6 +34,12 @@ class _QuizPageState extends State<QuizPage> {
   ];
   int questionNumber = 0;
 
+  List<bool> answers = [
+    false,
+    true,
+    true
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -72,6 +78,12 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
                 setState(() {
+                  bool correctAnswers = answers[questionNumber];
+                  if (correctAnswers == true) {
+                    print('user got it right!');
+                  } else {
+                    print('user got it wrong');
+                  }
                   if (questionNumber == questions.length - 1) {
                     questionNumber = 0;
                   } else {
@@ -96,6 +108,12 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                bool correctAnswers = answers[questionNumber];
+                if (correctAnswers == false) {
+                  print('user got it right!');
+                } else {
+                  print('user got it wrong');
+                }
                 setState(() {
                   if (questionNumber == questions.length - 1) {
                     questionNumber = 0;

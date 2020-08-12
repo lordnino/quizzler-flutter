@@ -5,9 +5,6 @@ class Question {
   bool questionAnswer;
 
   // constructor
-  Question({String q, bool a}) {
-    questionAnswer = a;
-    questionText = q;
-  }
+  Question(this.questionText, this.questionAnswer);
 
 }
